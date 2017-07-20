@@ -23,7 +23,7 @@ Or install it yourself as:
 Write an initializer in: `config/initializers/demoji.rb`:
 
 ```ruby
-ActiveRecord::Base.send :include, Demoji
+ActiveRecord::Base.send :prepend, Demoji
 ```
 
 ## Contributing

@@ -4,19 +4,12 @@ require 'active_support/core_ext/module/aliasing'
 require 'active_support/core_ext/object/blank'
 
 module Demoji
-
-  extend ActiveSupport::Concern
-
-  included do
-    alias_method_chain :create_or_update, :utf8_rescue
-  end
-
   private
 
-    def create_or_update_with_utf8_rescue
+    def create_or_update(*)
       _rescued_counter ||= 0
 
-      create_or_update_without_utf8_rescue
+      super
     rescue ActiveRecord::StatementInvalid => ex
       raise ex unless ex.message.match /Mysql2::Error: Incorrect string value:/
 

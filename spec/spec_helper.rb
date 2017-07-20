@@ -10,7 +10,7 @@ require 'demoji'
 require 'rspec'
 require 'active_record'
 
-ActiveRecord::Base.send :include, Demoji
+ActiveRecord::Base.send :prepend, Demoji
 
 Dir["#{APP_DIR}/spec/support/**/*.rb"].each {|f| require f}
 
