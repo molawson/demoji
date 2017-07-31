@@ -5,4 +5,4 @@ gemspec
 
 gem 'mysql2'
 gem 'rspec'
-gem 'debugger'
+gem 'byebug'
